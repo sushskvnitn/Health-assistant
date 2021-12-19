@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    font-family: 'Roboto', sans-serif;
+   
+}
+.cmd{
+     background: rgb(48, 48, 48);;
+}
+#container{
+   padding-top: 4ex;
+}
+
+
+.list-group-item iframe{
+
+    height: 50vh;
+    width: 100%;
+
+}
+.list-group-list-group-flush{  
+    max-width: 800px;
+    margin: 0 auto;
+ 
+    
+}
+.center{
+    display: grid;
+    place-items: center;
+}
+#preloader{
+    background: #ffffff url("/ids project/Disk-Preloader-1.gif") no-repeat center;
+    background-size: 40%;
+    height:100vh;
+    width:100%;
+    position: fixed;
+    z-index: 100;
+}

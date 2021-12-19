@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Virtual Health assistant</title>
+        <script src="https://kit.fontawesome.com/ab51d8933c.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="app.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+<body style="background-color: rgb(39, 39, 39);">
+    <b>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            </div>
+            <div class="container-fluid">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+
+                    </a>
+                    <a class="navbar-brand" href="/ids project/index.html"> <img
+                            src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/health-logo-design-template-413edd6c579e1c7ac61e14ffdd75eec5_screen.jpg?ts=1604410182"
+                            alt="" width="30" height="29" class="d-inline-block align-text-top">
+                        <b>Health assistant</b> </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                        <div class="navbar-nav" style="margin: 10px;">
+                            <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" aria-current="page" href="/ids project/index.html"><i class="fas fa-hospital"></i> <b>Home</b> </a>
+                            <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" href="/ids project/diseases.html"><i class="fas fa-check-double"></i> <b>symptom checker</b> </a>
+                            <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" href="/ids project/coronainfo.html"><i class="fas fa-virus"></i> <b>covid-19 info</b> </a>
+                            <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" href="/ids project/diseasesinfo.html"><i class="fas fa-bacteria"></i> <b>diseases info</b> </a>
+                        </div>
+                    </div>
+                </div>
+        </nav>
+    </b>
+    <form id="myForm" class="input-group mb-3 " style="margin-top: 10px;">
+        <input type="text" id="country" class="form-control" required placeholder="disease name correctly "
+            aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input class="btn btn-outline-warning" type="submit" value="Get Data" style="margin-left: 15px; "
+            id="button-addon2"></input>
+    </form>
+    <div class="card" >
+        <div class="card-header" style="padding: 10px;margin: 10px;">
+            <b> <i class="fas fa-bacteria"> </i>Disease info </b>
+        </div>
+        <ul class="list-group list-group-flush">
+            <b>
+                <li id="disease"></li>
+                <li id="disease"></li>
+
+            </b>
+        </ul>
+    </div>
+</div>
+</span>
+<script>
+
+    var myForm = document.getElementById("myForm")
+    myForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var country = document.getElementById("country").value
+        var url = `https://disease-info-api.herokuapp.com/diseases/` + country
+
+        fetch(url)
+            .then(res => res.json())
+            .then(res => {
+                console.log(res)
+                var length = res.length
+                var index = length - 1
+                var disease = document.getElementById("disease")
+                disease.innerHTML =`
+                <p class="text-center"> <h1><i class="fas fa-disease"></i> ${res.disease.name}</h1></p>
+                <br/> 
+                <br/> 
+                <h3> <i class="fas fa-bacterium"></i> Sympotoms:  </h3>${res.disease.symptoms}
+                <br/>
+                <br/>
+                <h3><i class="fas fa-sign-language"></i> Transmition: </h3>  ${res.disease.transmition}
+                <br/><br/>
+                <h3><i class="fas fa-band-aid"></i>Treatment: </h3>  ${res.disease.treatment}
+                <br/><br/>
+                <h3><i class="fas fa-vial"></i>  Facts: </h3>  ${res.disease.facts}
+                <br/><br/>
+                <h3><i class="fas fa-info"></i> More:</h3> <a><i class="fas fa-link"></i> ${res.disease.more} </a>
+                <br/><br/>
+                 <h5> data_updated_on: </h5>  ${res.disease.data_updated_at}
+              `
+            }
+            ).then(res.error)
+    })
+
+</script>
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

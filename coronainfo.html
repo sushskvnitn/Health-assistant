@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>virtual health assistant</title>
+    <script src="https://kit.fontawesome.com/ab51d8933c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="app.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<b>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        </div>
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+
+                </a>
+                <a class="navbar-brand" href="/ids project/index.html"> <img
+                        src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/health-logo-design-template-413edd6c579e1c7ac61e14ffdd75eec5_screen.jpg?ts=1604410182"
+                        alt="" width="30" height="29" class="d-inline-block align-text-top">
+                    <b>Health assistant</b> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+                    <div class="navbar-nav" style="margin: 10px;">
+                        <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" aria-current="page" href="/ids project/index.html"><i class="fas fa-hospital"></i> <b>Home</b> </a>
+                        <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" href="/ids project/diseases.html"><i class="fas fa-check-double"></i> <b>symptom checker</b> </a>
+                        <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" href="/ids project/coronainfo.html"><i class="fas fa-virus"></i> <b>covid-19 info</b> </a>
+                        <a class="nav-link btn btn-sm  btn-outline-warning"style="margin: 10px;" href="/ids project/diseasesinfo.html"><i class="fas fa-bacteria"></i> <b>diseases info</b> </a>
+                       
+                    </div>
+                </div>
+            </div>
+    </nav>
+</b>
+<body style="display: grid; align-items: center;background-color: rgb(48, 48, 48);">
+    <span class="align-middle">
+    <div>
+        <form id="myForm" class="input-group mb-3 " style="margin-top: 10px;">
+            <input type="text" id="country" class="form-control" required placeholder="contry name "
+                aria-label="Recipient's username" aria-describedby="button-addon2">
+            <input class="btn btn-outline-warning" type="submit" value="Get Data" style="margin-left: 15px; "
+                id="button-addon2"></input>
+        </form>
+        <div class="card" style="font-size: 30px;" >
+            <div class="card-header">
+                <b> <i class="fas fa-virus"> </i>covid -19 info </b>
+            </div>
+            <ul class="list-group list-group-flush">
+                <b>
+                    <li id="cnt"></li>
+                    <li id="Confirmed"></li>
+                    <li id="active"></li>
+                    <li id="deaths"></li>
+                    <li id="date"></li>
+                </b>
+            </ul>
+        </div>
+    </div>
+</span>
+   <script>
+
+        var myForm = document.getElementById("myForm")
+        myForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var country = document.getElementById("country").value
+            var url = `https://api.covid19api.com/total/dayone/country/` + country
+
+            fetch(url)
+                .then(res => res.json())
+                .then(res => {
+
+                    var length = res.length
+                    var index = length - 1
+                    var cnt = document.getElementById("cnt")
+                    var date = document.getElementById("date")
+                    var active = document.getElementById("active")
+                    var confirmed = document.getElementById("Confirmed")
+
+                    var deaths = document.getElementById('deaths')
+
+                    confirmed.innerHTML = `<i class="fas fa-check-circle"></i> `
+                    deaths.innerHTML =`<i class="fas fa-book-dead"></i></i> `
+                    active.innerHTML = `<i class="fas fa-chart-line"></i>`
+                    cnt.innerHTML =`<i class="fas fa-globe-asia"></i> `
+                    date.innerHTML = `<i class="fas fa-calendar-day"></i> `
+                    cnt.append(` Country:` + res[index].Country)
+                    active.append("active:" + res[index].Active)
+                    date.append("Date:" + res[index].Date)
+                    confirmed.append("Total Confirmed:" + res[index].Confirmed)
+                    deaths.append(" Deaths:" + res[index].Deaths)
+                
+                }
+                )
+        })
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
