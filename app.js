@@ -26,7 +26,7 @@ function calculateBMI() {
                 <div class="card-body">
                   <h5 class="card-title">workout treatment</h5>
                   <p class="card-text">Hey you are overweighted <br/>  </p>
-                  <a href="/ids project/workout.html" class="btn btn-warning">start weight loss</a>
+                  <a href="https://sushskvnitn.github.io/health-assistant/workout.html" class="btn btn-warning">start weight loss</a>
                 </div></div>
               </div>`;
     else if (bmi >= 30 && bmi < 39.9)
@@ -36,7 +36,7 @@ function calculateBMI() {
   <div class="card-body">
     <h5 class="card-title">workout treatment</h5>
     <p class="card-text">Hey you are overweighted <br/>  </p>
-    <a href="/ids project/workout.html" class="btn btn-warning">start weight loss</a>
+    <a href="https://sushskvnitn.github.io/health-assistant/workout.html" class="btn btn-warning">start weight loss</a>
   </div> 
   </div>
 </div>`;
@@ -47,7 +47,7 @@ function calculateBMI() {
             <div class="card-body">
               <h5 class="card-title">workout treatment</h5>
               <p class="card-text">Hey you are overweighted <br/>  </p>
-              <a href="/ids project/workout.html" class="btn btn-warning">start weight loss</a>
+              <a href="https://sushskvnitn.github.io/health-assistant/workout.html" class="btn btn-warning">start weight loss</a>
             </div> 
           </div></div>`;
   }
