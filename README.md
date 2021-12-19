@@ -1,5 +1,5 @@
 # health-assistant
-<h1> Hello everyone hope You All are well !!!! </h1>
+<h1> Hello everyone hope You All are well ‼️‼️ </h1>
 Here is health assistant app which can  :
 <img src="https://i.postimg.cc/JhKP5SNr/ha.png"  height="300px" width="700px"> </img>
            <br/>       1> check your BMI and give you the instructions if you are overweighted and more. it will you a workout schedule for weight loss 
@@ -10,3 +10,6 @@ Here is health assistant app which can  :
                    <br/>     ~ treatment 
                    <br/>      ~ precautions 
                     <br/>     ~etc. and also some added features 
+                     <br/>   <br/>  
+                     <br/>  
+                    <a class="btn btn-danger" href="https://sushskvnitn.github.io/health-assistant/index.html">🔴 LINK FOR HOSTED PROJECT </a>
