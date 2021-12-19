@@ -28,7 +28,7 @@
     place-items: center;
 }
 #preloader{
-    background: #ffffff url("/ids project/Disk-Preloader-1.gif") no-repeat center;
+    background: #ffffff url("https://sushskvnitn.github.io/health-assistant/Disk-Preloader-1.gif") no-repeat center;
     background-size: 40%;
     height:100vh;
     width:100%;
